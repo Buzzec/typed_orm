@@ -1,0 +1,29 @@
+[workspace]
+members = [".", "typed_orm_proc"]
+
+[package]
+name = "typed_orm"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+default = []
+postcard = ["dep:postcard"]
+serde = ["dep:serde"]
+serde_json = ["dep:serde_json", "serde", "dep:schemars"]
+uuid = ["dep:uuid", "rusqlite/uuid"]
+
+[dependencies]
+bytemuck = "1.25.0"
+derive_more = { version = "2.1.1", features = ["full"] }
+postcard = { version = "1.1.3", optional = true, features = ["alloc"] }
+rusqlite = { version = "0.39.0", features = ["serde_json", "blob", "functions"] }
+schemars = { version = "1.2.1", optional = true, features = ["derive"] }
+serde = { version = "1.0.228", optional = true, features = ["derive"] }
+serde_json = { version = "1.0.109", optional = true }
+thiserror = "2.0.18"
+typed_orm_proc = { path = "typed_orm_proc" }
+uuid = { version = "1.23.0", optional = true }
+
+[dev-dependencies]
+rand = "0.10.0"

@@ -1,10 +1,14 @@
 [workspace]
 members = [".", "typed_orm_proc"]
 
-[package]
-name = "typed_orm"
+[workspace.package]
 version = "0.1.0"
 edition = "2024"
+
+[package]
+name = "typed_orm"
+version.workspace = true
+edition.workspace = true
 
 [features]
 default = []
